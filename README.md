@@ -2,6 +2,7 @@
 Changes BAI files into a CSV format
 
 def remove_garbage(line):
+
     """
     Remove spaces, /, and \n characters from the line.
 
@@ -21,6 +22,7 @@ def remove_garbage(line):
 
 
 def extract_02_data(line):
+
     """
     The 02-line is the group header for the account numbers and transactions that follow. The data that follows all
     have to do with the single routing number from this group. Use the regex strings to find the necessary data from
@@ -43,6 +45,7 @@ def extract_02_data(line):
     return file_date, currency
 
 def extract_03_data(line, currency_type):
+
     """
     The 03-line contains the account identifier and account summary information. Use the regex values to find the data
     that is found in the 03-line. The account_currency value will get individual currencies if the group has multiple
@@ -85,6 +88,7 @@ def extract_03_data(line, currency_type):
 
 
 def extract_16_data(line, look_up):
+
     """
     The 16-line contains all of the transaction information for the account found in the 03-line. The regexes collect
     the transaction data from the 16-line. The 16-line contains a comment field in the last position that contains
@@ -140,6 +144,7 @@ def extract_16_data(line, look_up):
 
 
 def parse_file(df, look_up):
+
     """
     Separates the file into the lines that contain all the data. 02 lines contain Group Header information. 03 lines
     contain Account Identifier and Summary/Status information. 16 lines contain Transaction Detail information.
