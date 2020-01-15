@@ -18,6 +18,18 @@ Changes BAI files into a CSV format
             line = re.sub(r'/', ',', line)
 
         return line
+    
+    
+    def add_cents(amount):
+    """
+    Transaction and Balance amounts do not contain a decimal point to indicate the cents in the amount parameter. After
+    converting to a float value, multiply the number by .01.
+
+    :param amount: the amount needing a decimal.
+    :return: amount with decimal point.
+    """
+    float_amount = float(amount) * .01
+    return float_amount
 
 
     def extract_02_data(line):
